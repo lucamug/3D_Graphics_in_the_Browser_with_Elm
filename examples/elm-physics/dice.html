@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cubik</title>
+    <style>
+        html,
+        head,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: rgb(74,74,74);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="elm"></div>
+    <script src="elm.js"></script>
+    <script>
+        Elm.Main.init({ node: document.getElementById('elm') });
+        // Capture focus
+        window.focus();
+    </script>
+</body>
+
+</html>

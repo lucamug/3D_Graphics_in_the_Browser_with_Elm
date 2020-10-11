@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Game of Life - Elm Web GL</title>
+	<style>
+		html {
+			background-color: black;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			margin: 0;
+		}
+
+		canvas {
+			background-color: #16161D;
+		}
+	</style>
+</head>
+
+<body>
+	<script src="elm.js"></script>
+	<script>
+		var app = Elm.Main.init()
+		// var e = document.getElementsByTagName('body')[0];
+		//
+		// function sendPosition(e) {
+		// 	requestAnimationFrame(function (_time) {
+		// 		app.ports.onPointerMove.send({x: e.movementX, y: e.movementY})
+		// 	});
+		// }
+		//
+		// function pointerLockChange () {
+		// 	if (document.pointerLockElement === e) {
+		// 		console.log('The pointer lock status is now locked');
+		// 		document.addEventListener("mousemove", sendPosition, false);
+		// 	} else {
+		// 		console.log('The pointer lock status is now unlocked');
+		// 		document.removeEventListener("mousemove", sendPosition, false);
+		// 	}
+		// }
+		//
+		// document.addEventListener('pointerlockchange', pointerLockChange, false);
+		//
+		// e.addEventListener('click', function() {
+		// 	e.requestPointerLock();
+		// });
+	</script>
+</body>
+
+</html>

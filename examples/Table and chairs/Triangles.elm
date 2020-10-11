@@ -1,0 +1,66 @@
+module Triangles exposing (main)
+
+import Angle exposing (Angle)
+import Camera3d
+import Color
+import Direction3d
+import Html exposing (Html)
+import Length
+import Palette.Tango as Tango
+import Pixels
+import Point3d
+import Scene3d
+import Scene3d.Material as Material
+import Scene3d.Mesh as Mesh
+import SketchPlane3d
+import Triangle3d
+import Viewpoint3d
+
+
+main : Html msg
+main =
+    let
+        triangle1 =
+            Triangle3d.from
+                (Point3d.meters 0 0 0)
+                (Point3d.meters 1 0 0)
+                (Point3d.meters 1 1 0)
+
+        triangle2 =
+            Triangle3d.from
+                (Point3d.meters 0 0 0)
+                (Point3d.meters 1 1 0)
+                (Point3d.meters 0 1 0)
+
+        mesh1 =
+            Mesh.triangles [ triangle1 ]
+
+        mesh2 =
+            Mesh.triangles [ triangle2 ]
+
+        viewpoint =
+            Viewpoint3d.lookAt
+                { focalPoint = Point3d.meters 0.5 0.5 0
+                , eyePoint = Point3d.meters 3 3 2
+                , upDirection = Direction3d.z
+                }
+
+        camera =
+            Camera3d.perspective
+                { viewpoint = viewpoint
+                , verticalFieldOfView = Angle.degrees 30
+                , clipDepth = Length.meters 0.1
+                }
+    in
+    Scene3d.toHtml []
+        { camera = camera
+        , dimensions = ( Pixels.pixels 800, Pixels.pixels 600 )
+        , directLighting = Scene3d.noDirectLighting
+        , environmentalLighting = Scene3d.noEnvironmentalLighting
+        , background = Scene3d.transparentBackground
+        , exposure = Scene3d.defaultExposure
+        , whiteBalance = Scene3d.defaultWhiteBalance
+        }
+        [ Scene3d.mesh (Material.color Tango.orange2) mesh1
+        , Scene3d.mesh (Material.color Tango.skyBlue2) mesh2
+        ]

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <!-- Compiled elm source code-->
+    <script src="main.js"></script>
+    <!-- HowlerJS for audio playback-->
+    <script src="howler.core.min.js"></script>
+</head>
+
+<body>
+    <div id="elm"></div>
+    <script>
+        // Inspired from https://www.reddit.com/r/elm/comments/9ig3vt/playing_a_sound_with_elm_019/
+        (function SoundManager() {
+            const sounds = {
+                music: new Howl({
+                    src: ['assets/sounds/bg_music.mp3'],
+                    loop: true,
+                    volume: 0.03
+                }),
+                gameOver: new Howl({
+                    src: ['assets/sounds/game_over.wav'],
+                    volume: 0.6
+                }),
+                tetroidPlaced: new Howl({
+                    src: ['assets/sounds/placed.wav'],
+                    volume: 0.6
+                }),
+                planeCleared: new Howl({
+                    src: ['assets/sounds/plane_cleared.wav'],
+                    volume: 0.6
+                }),
+                tetroidRotated: new Howl({
+                    src: ['assets/sounds/swoosh.flac'],
+                    volume: 0.6
+                })
+            };
+
+
+            const activeSounds = new Map();
+
+            window.SoundManager = function(name) {
+                const sound = sounds[name];
+                console.assert(sound != null, `Unknown sound: ${name}`);
+                if (name === "tetroidRotated" || !activeSounds.get(name)) {
+                    const soundId = sound.play();
+                    activeSounds.set(name, soundId);
+                    // Deletes from activeSounds when the sound finishes playing.
+                    if (!sound.loop()) {
+                        sound.on('end', function() {
+                            activeSounds.delete(name);
+                        });
+                    }
+                }
+
+            };
+        }());
+
+        var app = Elm.Tetris.init({
+            node: document.getElementById('elm'),
+            flags: SoundManager
+        });
+        app.ports.sounds.subscribe(SoundManager);
+    </script>
+</body>
+
+</html>

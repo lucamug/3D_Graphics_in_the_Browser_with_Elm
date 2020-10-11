@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>Litmoji</title>
+  <style>
+    * {
+      font-size: 16px;
+      font-family: sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    label {
+      display: block;
+      padding: 4px 0;
+      cursor: pointer;
+    }
+
+    hr, fieldset {
+      border-style: solid;
+      border-color: #21cc8c;
+      border-radius: 8px;
+      margin: 20px auto;
+    }
+
+    svg * {
+      fill: #21cc8c;
+      stroke: #21cc8c;
+      stroke-width: 0.008;
+    }
+
+    main     { margin: 0 auto }
+    canvas   { display: block }
+    hr       { border-width: 2px }
+    fieldset { border-width: 4px }
+    p        { height: unset }
+    .warning { color: red }
+    .hide    { display: none }
+  </style>
+</head>
+<body>
+<div id="elm"></div>
+<script src="elm.js"></script>
+<script>
+  const app = Elm.Warp.init({ node: window.elm, flags: {} });
+  requestAnimationFrame(function() {
+    window.addEventListener("dragover", function(event) {
+      event.preventDefault();
+    });
+    window.addEventListener("drop", function(event) {
+      event.preventDefault();
+      app.ports.imageDrop.send(event.dataTransfer.getData('URL'));
+    });
+  })
+</script>
+<div style="padding:30px;background:#eeeeee;text-align:center">
+  <p><a href="https://kofi.sexy">↖ My homepage</a></p>
+  <script async defer src="https://www.recurse-scout.com/loader.js?t=65e59108b8d145fc3abc19ac684004a8"></script>
+</div>
+</body>
+</html>

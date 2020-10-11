@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>Main</title>
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      font-size: 16px;
+      font-family: monospace;
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    textarea {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border: none;
+
+      padding: 32px;
+      color: white;
+      background-color: transparent;
+
+      resize: none;
+      white-space: pre;
+      box-sizing: border-box;
+    }
+
+    .error {
+      font-style: italic;
+    }
+
+    label:focus {
+      outline: lightblue solid 2px;
+    }
+
+    .controls {
+      padding: 20px;
+    }
+
+    .controls h2 {
+      display: inline-block;
+      border-bottom: dashed 2px black;
+    }
+
+    .controls label {
+      display: block;
+      padding: 20px;
+    }
+
+    svg text {
+      x: 50%;
+      y: 50%;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+
+<body>
+    <div id="elm"></div>
+    <div class="controls">
+        <h2>No MIDI? No problem!</h2>
+        <label>BPM <input id="bpm" type="number"></label>
+        <label id="keyboard" tabindex="-1" style="cursor:pointer;background-color:#b8bab9">
+            Focus to play keyboard<br>
+            <img style="width:100%;max-width:450px" src="keyboard.png">
+        </label>
+    </div>
+    <script src="elm.js"></script>
+    <script>
+        const app = Elm.Visualizer.init({
+            node: window.elm,
+            flags: {
+                height: window.innerHeight,
+                width: window.innerWidth,
+                hash: window.location.hash,
+            }
+        });
+
+        app.ports.setHash.subscribe(function(hash) {
+            window.history.replaceState(null, null, hash);
+        });
+
+        navigator.requestMIDIAccess().then(function(access) {
+            for (var input of access.inputs.values()) {
+                input.onmidimessage = function(event) {
+                    app.ports.midiMessage.send([event.timeStamp, Array.from(event.data)]);
+                };
+            }
+        });
+
+        function midi(bytes) {
+            app.ports.midiMessage.send([performance.now(), bytes]);
+        }
+
+        // Setup manual BPM fallback
+        var intervalId;
+        window.bpm.addEventListener("input", function(event) {
+            clearInterval(intervalId);
+            const bpm = parseInt(event.target.value);
+            if (bpm) intervalId = setInterval(function() {
+                midi([248]);
+            }, 60000 / bpm / 32);
+        });
+
+        // Setup manual keyboard fallback
+        window.keyboard.addEventListener("keydown", function(event) {
+            switch (event.key) {
+                case "a":
+                    return midi([144, 0, 100]);
+                case "w":
+                    return midi([144, 1, 100]);
+                case "s":
+                    return midi([144, 2, 100]);
+                case "e":
+                    return midi([144, 3, 100]);
+                case "d":
+                    return midi([144, 4, 100]);
+                case "f":
+                    return midi([144, 5, 100]);
+                case "t":
+                    return midi([144, 6, 100]);
+                case "g":
+                    return midi([144, 7, 100]);
+                case "y":
+                    return midi([144, 8, 100]);
+                case "h":
+                    return midi([144, 9, 100]);
+                case "u":
+                    return midi([144, 10, 100]);
+                case "j":
+                    return midi([144, 11, 100]);
+            }
+        });
+    </script>
+</body>
+
+</html>
