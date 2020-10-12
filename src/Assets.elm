@@ -26,7 +26,7 @@ This is a collection of cool 3D stuff made 100% in Elm.
         
 Get inspired to play with these tools, build stuff and contribute to public libraries!
     
-If you think that something is missing, you spotted a mistake or you have some feedback, send me a message or - even better - open an issue/PR in [this repository](https://github.com/lucamug/""" ++ repoName ++ """).
+If you think that something is missing, you spotted a mistake or you have some feedback, send me a message or - even better - open an issue or send a pull request in [this repository](https://github.com/lucamug/""" ++ repoName ++ """).
     
 If you want to learn more about 3D Graphics in Elm, you can start reading the documentation of [these libraries](#libraries) and joining the channels #webgl and #gamedev in the [Elm Slack](https://elmlang.herokuapp.com/). 
 
@@ -331,7 +331,7 @@ demoToUrlCode demo =
             ""
 
         else
-            "https://github.com/lucamug/" ++ repoName ++ "/blob/master/examples" ++ demo.urlLocalCode
+            "https://github.com/lucamug/" ++ repoName ++ "/blob/master/examples/" ++ demo.urlLocalCode
 
     else
         demo.urlCode

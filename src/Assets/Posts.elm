@@ -88,7 +88,7 @@ posts =
       , url = "https://github.com/ianmackenzie/elm-3d-scene/tree/master/examples"
       }
     , { personId = Nacmartin
-      , title = "Learn Webgl in 15 lessons. A series of example with written with `elm-explorations/webgl`."
+      , title = "Learn Webgl in 15 lessons. A collection of examples written with `elm-explorations/webgl`."
       , url = "https://github.com/ianmackenzie/elm-3d-scene/tree/master/examples"
       }
     ]
