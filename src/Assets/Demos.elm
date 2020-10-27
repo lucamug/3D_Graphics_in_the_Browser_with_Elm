@@ -67,15 +67,37 @@ demos =
       , gif = "overlay.gif"
       }
     , { name = "Lack"
-      , description = ""
+      , description = "This demo allows dragging objects with mouse, try flipping the table!"
       , personId = Unsoundscapes
-      , urlCode = "https://github.com/ianmackenzie/elm-3d-scene/blob/989c4e78802ce6d96d0e5cb62dff855fdf926a80/examples/Lack.elm"
-      , urlDemo = "https://unsoundscapes.com/slides/2019-12-07-how-to-flip-a-table-with-elm/lack.html"
+      , urlCode = "https://github.com/w0rm/elm-physics/blob/master/examples/Lack.elm"
+      , urlDemo = "https://unsoundscapes.com/elm-physics/examples/lack/"
       , urlLocalCode = "elm-3d-scene/lack/Lack.elm"
       , urlLocalDemo = "elm-3d-scene/lack/Lack.html"
       , ellie = ""
       , post = "https://unsoundscapes.com/slides/2019-12-07-how-to-flip-a-table-with-elm"
       , gif = "lack.gif"
+      }
+    , { name = "Duckling"
+      , description = "This demo loads a convex shape and a mesh from the same OBJ file"
+      , personId = Unsoundscapes
+      , urlCode = "https://github.com/w0rm/elm-physics/blob/master/examples/Duckling.elm"
+      , urlDemo = "https://unsoundscapes.com/elm-physics/examples/duckling/"
+      , urlLocalCode = ""
+      , urlLocalDemo = ""
+      , ellie = ""
+      , post = ""
+      , gif = "ducks-320px.gif"
+      }
+    , { name = "Circuit Breaker"
+      , description = ""
+      , personId = MartinSStewart
+      , urlCode = "https://gitlab.com/MartinSStewart/hackman"
+      , urlDemo = "https://martinsstewart.gitlab.io/hackman/"
+      , urlLocalCode = ""
+      , urlLocalDemo = ""
+      , ellie = ""
+      , post = "https://dev.to/martinsstewart/what-is-elm-and-a-game-i-m-making-with-it-3di1"
+      , gif = "breaker.gif"
       }
     , { name = "Floating City"
       , description = "A three dimensional representation of Tokyo rendered in SVG, used for the Elm Japan Conference website"
@@ -633,6 +655,17 @@ demos =
       , urlLocalDemo = ""
       , ellie = ""
       , post = ""
+      , gif = ""
+      }
+    , { name = "Webgl Depth Map"
+      , description = "Visualizations of depth maps in the browser."
+      , personId = Mpizenberg
+      , urlCode = "https://github.com/mpizenberg/elm-webgl-depthmap"
+      , urlDemo = "https://mpizenberg.github.io/elm-webgl-depthmap/"
+      , urlLocalCode = ""
+      , urlLocalDemo = ""
+      , ellie = ""
+      , post = "https://discourse.elm-lang.org/t/using-elm-and-webgl-for-depth-maps-3d-visualizations/6406"
       , gif = ""
       }
     ]

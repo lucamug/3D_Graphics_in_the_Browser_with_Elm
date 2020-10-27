@@ -43,11 +43,33 @@ type PersonId
     | Johnpmayer
     | Evancz
     | ElmExplorations
+    | MartinSStewart
+    | Mpizenberg
 
 
 personIdToPerson : PersonId -> Person
 personIdToPerson personId =
     case personId of
+        Mpizenberg ->
+            { photo = "https://avatars3.githubusercontent.com/u/2905865"
+            , name = "Matthieu Pizenberg"
+            , handleTwitter = "mattpiz"
+            , handleGithub = "mpizenberg"
+            , handleMedium = ""
+            , handleDiscorse = "mattpiz"
+            , homePage = "https://matthieu.pizenberg.fr/about-me/"
+            }
+
+        MartinSStewart ->
+            { photo = "https://avatars0.githubusercontent.com/u/5068391"
+            , name = "MartinSStewart"
+            , handleTwitter = ""
+            , handleGithub = "MartinSStewart"
+            , handleMedium = ""
+            , handleDiscorse = ""
+            , homePage = ""
+            }
+
         MarcoSehrer ->
             { photo = "https://avatars1.githubusercontent.com/u/11566"
             , name = "Marco Sehrer"

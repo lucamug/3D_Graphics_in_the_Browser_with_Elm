@@ -24,6 +24,10 @@ posts =
       , url = "https://medium.com/@voorkanter/a-low-poly-water-shader-in-elm-webgl-7a7a131e2733"
       }
     , { personId = Unsoundscapes
+      , title = "3D Physics Engine Pt. 5"
+      , url = "https://discourse.elm-lang.org/t/3d-physics-engine-pt-5/6423"
+      }
+    , { personId = Unsoundscapes
       , title = "3D Physics Engine Pt. 4"
       , url = "https://discourse.elm-lang.org/t/3d-physics-engine-pt-4/4895"
       }
