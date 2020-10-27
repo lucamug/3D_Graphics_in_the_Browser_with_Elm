@@ -51,7 +51,7 @@ personIdToPerson : PersonId -> Person
 personIdToPerson personId =
     case personId of
         Mpizenberg ->
-            { photo = "https://avatars3.githubusercontent.com/u/2905865"
+            { photo = ""
             , name = "Matthieu Pizenberg"
             , handleTwitter = "mattpiz"
             , handleGithub = "mpizenberg"
