@@ -93,8 +93,8 @@ personIdToPerson personId =
         Unsoundscapes ->
             { photo = "https://avatars0.githubusercontent.com/u/26506215"
             , name = "Andrey Kuzmin"
-            , handleTwitter = "w0rm"
-            , handleGithub = "unsoundscapes"
+            , handleTwitter = "unsoundscapes"
+            , handleGithub = "w0rm"
             , handleMedium = ""
             , handleDiscorse = "unsoundscapes"
             , homePage = "http://unsoundscapes.com/"
