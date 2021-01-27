@@ -30,6 +30,7 @@ type WorldCoordinates
     = WorldCoordinates
 
 
+permutationTable : Simplex.PermutationTable
 permutationTable =
     Simplex.permutationTableFromInt 42
 
@@ -73,6 +74,7 @@ fieldMesh =
         |> Mesh.facets
 
 
+oceanQuad : Scene3d.Entity coordinates
 oceanQuad =
     let
         oceanHight =

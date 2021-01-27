@@ -181,7 +181,7 @@ demos =
       , personId = Myotherpants
       , urlCode = ""
       , urlDemo = ""
-      , urlLocalCode = ""
+      , urlLocalCode = "procedural-landscape/ProceduralLandscape.elm"
       , urlLocalDemo = "procedural-landscape/ProceduralLandscape.html"
       , ellie = ""
       , post = ""
@@ -240,7 +240,7 @@ demos =
         -- cd examples
         -- elm reactor
         --
-        name = "Table and Chairs \u{1FA91}\u{1FA91}"
+        name = "Table and Chairs 🪑🪑"
       , description = ""
       , personId = Unsoundscapes
       , urlCode = "https://github.com/ianmackenzie/elm-3d-scene/blob/d1a802aaf6a0adc659c2a006b5194396bb225b18/examples/Demo.elm"
